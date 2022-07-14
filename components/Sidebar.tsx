@@ -6,7 +6,7 @@ import GoogleLogin from "react-google-login";
 import { AiFillHome, AiOutlineMenu } from "react-icons/ai";
 import { ImCancelCircle } from "react-icons/im";
 
-import Discover from "./Discover";
+import Topics from "./Topics";
 import SuggestedAccounts from "./SuggestedAccounts";
 import Footer from "./Footer";
 
@@ -42,7 +42,7 @@ const Sidebar = () => {
                   <AiFillHome />
                 </p>
                 <span className="capitalize text-xl hidden xl:block">
-                  ホーム
+                  おすすめ
                 </span>
               </div>
             </Link>
@@ -72,7 +72,7 @@ const Sidebar = () => {
             </div>
           )}
 
-          <Discover />
+          <Topics />
           <SuggestedAccounts />
           <Footer />
         </div>
