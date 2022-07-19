@@ -10,6 +10,7 @@ import { IoMdAdd } from "react-icons/io";
 import Logo from "../utils/ticktak-logo.png";
 import { createOrGetUser } from "../utils/index";
 import useAuthStore from "../store/authStore";
+import { AuthState } from "./../types";
 
 const Navbar = () => {
   const { userProfile, storeUser, removeUser } = useAuthStore();
@@ -27,7 +28,7 @@ const Navbar = () => {
         </div>
       </Link>
 
-      <div>SEARCH</div>
+      <div>検索</div>
 
       <div>
         {userProfile ? (
@@ -35,7 +36,7 @@ const Navbar = () => {
             <Link href="/upload">
               <button className="border-2 px-2 md:px-4 text-md font-semibold flex items-center gap-2">
                 <IoMdAdd className="text-xl" />{" "}
-                <span className="hidden md:block">Upload</span>
+                <span className="hidden md:block">アップロード</span>
               </button>
             </Link>
             {userProfile.image && (

@@ -14,8 +14,6 @@ const Sidebar = () => {
   // サイドバー切り替え
   const [showSidebar, setShowSidebar] = useState<Boolean>(true);
 
-  const userProfile = false;
-
   const { pathname } = useRouter();
 
   // リンクのスタイリング(現在のパスによって切り替える)
@@ -47,31 +45,6 @@ const Sidebar = () => {
               </div>
             </Link>
           </div>
-          {!userProfile && (
-            <div className="px-2 py-4 hidden xl:block">
-              <p className="text-gray-400">
-                投稿にライクやコメントをするにはログインが必要です。
-              </p>
-              <div className="pr-4">
-                <GoogleLogin
-                  clientId=""
-                  render={(renderProps) => (
-                    <button
-                      className="bg-white text-lg text-[#F51997] border-[1px] border-[#F51997] font-semibold px-6 py-3 rounded-md outline-none w-full mt-3 hover:text-white hover:bg-[#F51997] cursor-pointer"
-                      onClick={renderProps.onClick}
-                      disabled={renderProps.disabled}
-                    >
-                      ログイン
-                    </button>
-                  )}
-                  onSuccess={() => {}}
-                  onFailure={() => {}}
-                  cookiePolicy="single_host_origin"
-                />
-              </div>
-            </div>
-          )}
-
           <Topics />
           <SuggestedAccounts />
           <Footer />

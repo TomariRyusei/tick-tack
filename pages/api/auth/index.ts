@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 
-import { client } from "../../utils/client";
+import { client } from "../../../utils/client";
 
 export default async function handler(
   req: NextApiRequest,
@@ -8,8 +8,7 @@ export default async function handler(
 ) {
   if (req.method === "POST") {
     const user = req.body;
-    client
-      .createIfNotExists(user)
-      .then(() => res.status(200).json("Login success"));
+    await client.createIfNotExists(user);
+    res.status(200).json("Login success");
   }
 }
