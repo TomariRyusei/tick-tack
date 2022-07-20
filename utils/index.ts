@@ -1,7 +1,7 @@
 import axios from "axios";
 import jwt_decode from "jwt-decode";
 
-// export const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
+export const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
 export const createOrGetUser = async (response: any, storeUser: any) => {
   // googleの認証から受け取った認証情報(JWT)をデコード
@@ -20,5 +20,5 @@ export const createOrGetUser = async (response: any, storeUser: any) => {
 
   storeUser(user);
 
-  await axios.post("http://localhost:3000/api/auth", user);
+  await axios.post(`${BASE_URL}/api/auth`, user);
 };

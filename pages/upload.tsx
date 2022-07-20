@@ -8,6 +8,7 @@ import { SanityAssetDocument } from "@sanity/client";
 import useAuthStore from "../store/authStore";
 import { client } from "../utils/client";
 import { topics } from "../utils/constants";
+import { BASE_URL } from "../utils";
 
 // ファイルアップロード
 const Upload = () => {
@@ -19,7 +20,7 @@ const Upload = () => {
   const [caption, setCaption] = useState<string>("");
   const [topic, setTopic] = useState<string>(topics[0].name);
   const [isSavingPost, setIsSavingPost] = useState<boolean>(false);
-  const userProfile = useAuthStore((state) => state.userProfile);
+  const userProfile: any = useAuthStore((state) => state.userProfile);
   const router = useRouter();
 
   const uploadVideo = async (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -70,7 +71,7 @@ const Upload = () => {
         topic,
       };
 
-      await axios.post("http://localhost:3000/api/post", document);
+      await axios.post(`${BASE_URL}/api/post`, document);
 
       router.push("/");
     }
