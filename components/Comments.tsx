@@ -31,9 +31,6 @@ const Comments = ({
 }: Props) => {
   const { userProfile, allUsers } = useAuthStore();
 
-  console.log(comments);
-  console.log(allUsers);
-
   return (
     <div className="border-t-2 border-gray-200 pt-4 px-10 mt-4 bg-[#F8F8F8] border-b-2 lg:pb-0 pb-[100px]">
       <div className="overflow-scroll lg:h-[457px]">
