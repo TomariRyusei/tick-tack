@@ -11,7 +11,6 @@ interface Props {
 }
 
 const Home: NextPage<Props> = ({ videos }) => {
-  console.log(videos);
   return (
     <div className="text-3xl font-bold underlineflex flex-col gap-10 videos h-full">
       {videos.length ? (
