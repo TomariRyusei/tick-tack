@@ -177,7 +177,7 @@ const Upload = () => {
                 className=" outline-none capitalize bg-white text-gray-700 text-md p-2 hover:bg-slate-300"
                 value={item.name}
               >
-                {item.name}
+                {item.value}
               </option>
             ))}
           </select>

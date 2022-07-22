@@ -28,7 +28,7 @@ const Topics = () => {
             >
               <span className="font-bold text-2xl xl:text-md">{item.icon}</span>
               <span className="font-medium text-md hidden xl:block capitalize">
-                {item.name}
+                {item.value}
               </span>
             </div>
           </Link>

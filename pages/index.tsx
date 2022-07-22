@@ -10,7 +10,7 @@ interface Props {
   videos: Video[];
 }
 
-const Home: NextPage<Props> = ({ videos }) => {
+const Home = ({ videos }: Props) => {
   return (
     <div className="text-3xl font-bold underlineflex flex-col gap-10 videos h-full">
       {videos.length ? (
@@ -24,12 +24,23 @@ const Home: NextPage<Props> = ({ videos }) => {
 
 export default Home;
 
-export const getServerSideProps = async () => {
-  const { data } = await axios.get(`${BASE_URL}/api/post`);
+export const getServerSideProps = async ({
+  query: { topic },
+}: {
+  query: { topic: string };
+}) => {
+  let res = null;
+
+  // トピックが選択されている場合はトピックをキーに検索
+  if (topic) {
+    res = await axios.get(`${BASE_URL}/api/topic/${topic}`);
+  } else {
+    res = await axios.get(`${BASE_URL}/api/post`);
+  }
 
   return {
     props: {
-      videos: data,
+      videos: res.data,
     },
   };
 };
